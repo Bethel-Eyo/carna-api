@@ -1,0 +1,68 @@
+GET http://localhost:5000/admin
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhZG1pbl9pZCI6MiwibmFtZSI6IkJldGhlbCBFeW8iLCJ1c2VybmFtZSI6ImJldGhlbGV5byIsInBhc3N3b3JkIjoiJDJiJDEwJG1WS05ReC5lTlZlSy56Wm5lTE9jZWVKd3JzQmdLWS93dFRYR0hERTRjb1VyaVVDbnYzLmV1IiwiY3JlYXRlZGF0IjoiMjAyMS0wNS0xMVQxMToxMjoyNi44MzErMDE6MDAiLCJpYXQiOjE2MjA3MzQ2ODMsImV4cCI6MTYyMDczNTI4M30.0dpf-RmDK46_RA-2guLX_nOJQHORSphFmRsBT-vf_uY
+
+###
+GET http://localhost:5000/users
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoyLCJuYW1lIjoiQ2hyaXN0aWFuIFB1bGlzaWMiLCJ1c2VybmFtZSI6InB1bGlzaWMxMCIsInBhc3N3b3JkIjoiJDJiJDEwJFNsZFhFWFJhd2tuckZibEllYTlYVS4yM1F2cnc1Zk5KUWVkRlFBVXBjSWpLV2VHa0J5UWVLIiwiY291bnRyeSI6IlVTQSIsImNpdHkiOiJGbG9yaWRhIiwiY3JlYXRlZGF0IjoiMjAyMS0wNS0xMVQxMDo0NDo0MC42OTErMDE6MDAiLCJpYXQiOjE2MjA3MzMxNzcsImV4cCI6MTYyMDczMzc3N30.wkXtBSzQ15lOFBBbxI5_F4JbVfoGyQq2bFBtoEJeadQ
+###
+POST http://localhost:5000/register-user
+Content-Type: application/json
+
+{
+  "name": "Timo Werner",
+  "password": "password",
+  "country": "Germany",
+  "city": "Leipzig",
+  "username": "turbo_timo"
+}
+
+###
+POST http://localhost:5000/register-admin
+Content-Type: application/json
+
+{
+  "name": "Bethel Eyo",
+  "password": "password",
+  "username": "betheleyo"
+}
+
+###
+POST http://localhost:5000/user-login
+Content-Type: application/json
+
+{
+  "username": "kai29",
+  "password": "password"
+}
+
+###
+POST http://localhost:5000/admin-login
+Content-Type: application/json
+
+{
+  "username": "betheleyo",
+  "password": "password"
+}
+
+###
+POST http://localhost:5000/admin/create-course
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhZG1pbl9pZCI6MiwibmFtZSI6IkJldGhlbCBFeW8iLCJ1c2VybmFtZSI6ImJldGhlbGV5byIsInBhc3N3b3JkIjoiJDJiJDEwJG1WS05ReC5lTlZlSy56Wm5lTE9jZWVKd3JzQmdLWS93dFRYR0hERTRjb1VyaVVDbnYzLmV1IiwiY3JlYXRlZGF0IjoiMjAyMS0wNS0xMVQxMToxMjoyNi44MzErMDE6MDAiLCJpYXQiOjE2MjA3MzU0MjMsImV4cCI6MTYyMDczNjAyM30.Wz8qgSe28FoaMLBBJTpvdstMANYzPCX8etGXfXn5P8A
+{
+  "title": "German",
+  "description": "The native language of the German machines"
+}
+
+###
+PUT http://localhost:5000/admins/update-course
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhZG1pbl9pZCI6MiwibmFtZSI6IkJldGhlbCBFeW8iLCJ1c2VybmFtZSI6ImJldGhlbGV5byIsInBhc3N3b3JkIjoiJDJiJDEwJG1WS05ReC5lTlZlSy56Wm5lTE9jZWVKd3JzQmdLWS93dFRYR0hERTRjb1VyaVVDbnYzLmV1IiwiY3JlYXRlZGF0IjoiMjAyMS0wNS0xMVQxMToxMjoyNi44MzErMDE6MDAiLCJpYXQiOjE2MjA3Mzc0NDQsImV4cCI6MTYyMDczODY0NH0.9JAItG3eDdvAIOMGDyKP4NTJf7szldtqN7NM2bSHCPQ
+{
+  "title": "German Mastery",
+  "description": "The official language of the German machines",
+  "course_id": 2
+}
+
+###
+GET http://localhost:5000/users/get-enrolled-courses/4
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjo0LCJuYW1lIjoiS2FpIEhhdmVydHoiLCJ1c2VybmFtZSI6ImthaTI5IiwicGFzc3dvcmQiOiIkMmIkMTAkZkg3b1MyWHVub2N4dEpuNkVKblBVZVZVTDNETnlpREkvZjhEcEg5ZWZEalpKQ1hoWlIxa1MiLCJjb3VudHJ5IjoiR2VybWFueSIsImNpdHkiOiJMZXZlcmt1c2VuIiwiY3JlYXRlZGF0IjoiMjAyMS0wNS0xMVQxMDo0ODoxMC45MzQrMDE6MDAiLCJpYXQiOjE2MjA5OTIzMTgsImV4cCI6MTYyMDk5MzUxOH0.iUE0yzqLDD5QH6jAt05nO3-qKNvui5mhUzXac8Oq6OM
